@@ -9,6 +9,8 @@ export default class BrainDamage extends Actor {
     this.growthDirection = directionVector;
     this.mainscale = 0.001;
     this.subscale = 0.001;
+    this.damageColor = {r: .6, g: 0, b: 0};
+    // this.damageColor = 0x00ff00
   }
 
   async init() {
@@ -20,10 +22,10 @@ export default class BrainDamage extends Actor {
     // this.mainlobe.rotateY(0.1)
 
     const subgeo = new THREE.TetrahedronGeometry(1, 2);
-    const submat = new THREE.MeshLambertMaterial({ color: 0xaaaacc });
-    this.sublobeA = new THREE.Mesh(subgeo, submat);
-    this.sublobeB = new THREE.Mesh(subgeo, submat);
-    this.sublobeC = new THREE.Mesh(subgeo, submat);
+    // const submat = new THREE.MeshLambertMaterial({ color: 0xaaaacc });
+    this.sublobeA = new THREE.Mesh(subgeo, material);
+    this.sublobeB = new THREE.Mesh(subgeo, material);
+    this.sublobeC = new THREE.Mesh(subgeo, material);
     this.sublobeA.position.set(1, 0.5, 0.5);
     this.sublobeB.position.set(0.5, 1, 0.5);
     this.sublobeC.position.set(0, 1, 1);
@@ -43,7 +45,18 @@ export default class BrainDamage extends Actor {
     this.sublobeA.position.set(this.mainscale, 0, 0);
     this.sublobeB.position.set(0, this.mainscale, 0);
     this.sublobeC.position.set(0, 0, this.mainscale);
-    // console.log(this.mainlobe)
+
+    // this.mainlobe.material = new THREE.MeshLambertMaterial({ color: 0xaa0000 });
+    const yoColor = new THREE.Color(this.damageColor.r, this.damageColor.g, this.damageColor.b)
+    console.log(yoColor)
+    this.mainlobe.material.color.set(yoColor)
+
+    // this.mainlobe.material.color.r = this.damageColor.r
+    // this.mainlobe.material.color.g = this.damageColor.g
+    // this.mainlobe.material.color.b = this.damageColor.b
+    // this.sublobeB.
+    // this.sublobeC.
+    console.log(this.mainlobe.material.color)
   }
 
   dispose() {

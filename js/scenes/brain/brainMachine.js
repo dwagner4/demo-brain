@@ -44,6 +44,34 @@ const brainMachine = createMachine(
         entry: ['selectstroke'],
         on: {
           REWIND: { target: 'travel' },
+          NEXT: { target: 'stroke2' },
+        },
+      },
+      stroke2: {
+        entry: ['selectstroke'],
+        on: {
+          REWIND: { target: 'travel' },
+          NEXT: { target: 'stroke3' },
+        },
+      },
+      stroke3: {
+        entry: ['selectstroke'],
+        on: {
+          REWIND: { target: 'travel' },
+          NEXT: { target: 'stroke4' },
+        },
+      },
+      stroke4: {
+        entry: ['selectstroke'],
+        on: {
+          REWIND: { target: 'travel' },
+          NEXT: { target: 'stroke5' },
+        },
+      },
+      stroke5: {
+        entry: ['selectstroke'],
+        on: {
+          REWIND: { target: 'travel' },
           NEXT: { target: 'damage' },
           DRUG: { target: 'drug' },
         },

@@ -20,6 +20,7 @@ export default class BrainOne extends Actor {
   async init() {
     super.init();
     const glbloader = await createGlbLoader();
+    console.log("Yeah")
     const [brainData] = await Promise.all([
       glbloader.loadAsync('/assets/brain-Circulation.glb'),
     ]);

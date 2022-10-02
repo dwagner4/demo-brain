@@ -76,19 +76,19 @@ const dobreakoff = target =>
       x: -2.1,
       y: -7.5,
       z: -0.3,
-      duration: 2,
+      duration: 1,
     })
     .to(target.brainClot.model.position, {
       x: -2.4,
       y: -5.2,
       z: -0.7,
-      duration: 5,
+      duration: 2.5,
     })
     .to(target.brainClot.model.position, {
       x: -1,
       y: -4.1,
       z: -1.1,
-      duration: 3,
+      duration: 1.5,
     })
     .to(
       target.camera.position,
@@ -96,7 +96,7 @@ const dobreakoff = target =>
         x: -3,
         y: -10.8,
         z: -13.6,
-        duration: 4,
+        duration: 2,
       },
       '<'
     )
@@ -106,7 +106,7 @@ const dobreakoff = target =>
         x: 0.7,
         y: -7.2,
         z: -1.8,
-        duration: 4,
+        duration: 2,
       },
       '<'
     )
@@ -114,13 +114,13 @@ const dobreakoff = target =>
       x: -1,
       y: -3.5,
       z: -1.0,
-      duration: 2,
+      duration: 1,
     })
     .to(target.brainClot.model.position, {
       x: -1.1,
       y: -2.4,
       z: -2.2,
-      duration: 3,
+      duration: 1.5,
     });
 
 const dotravel = target =>
@@ -156,7 +156,7 @@ const dotravel = target =>
       x: -1.37,
       y: 10.38,
       z: -13.84,
-      duration: 5,
+      duration: 2.5,
     })
     .to(
       target.controls.target,
@@ -164,7 +164,7 @@ const dotravel = target =>
         x: -2.72,
         y: 0.54,
         z: 0.07,
-        duration: 5,
+        duration: 2.5,
       },
       '<'
     )
@@ -174,13 +174,13 @@ const dotravel = target =>
         r: 0.8,
         g: 0.7,
         b: 0.6,
-        duration: 2,
+        duration: 1,
       },
       '<'
     )
     .to(target.brain, {
       greyopacity: 0.0,
-      duration: 1,
+      duration: 0.5,
     })
     .set(target.brain, {
       greyVisible: false,
@@ -190,7 +190,7 @@ const dotravel = target =>
     })
     .to(target.brain, {
       arteryTwoOpacity: 0.3,
-      duration: 2,
+      duration: 1,
     })
     .set(target.caption, {
       innerHTML: 'The clot travels up one of the Middle Cerebral Arteries',
@@ -204,48 +204,48 @@ const dotravel = target =>
       x: -3.1,
       y: -1.0,
       z: -1.8,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -3.6,
       y: -0.9,
       z: -1.2,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -4.2,
       y: -0.4,
       z: -0.9,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -4.5,
       y: -0.0,
       z: -0.75,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -4.55,
       y: 0.15,
       z: -0.7,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -4.5,
       y: 0.35,
       z: -0.75,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.brainClot.model.position, {
       x: -4.35,
       y: 0.5,
       z: -0.78,
-      duration: 3,
+      duration: 1.5,
     })
     .set(target.caption, { innerHTML: '' })
     .to(target.brain, {
       arteryTwoOpacity: 1.0,
-      duration: 2,
+      duration: 1,
     })
     .set(target.brain, {
       aTwoTrans: false,
@@ -255,23 +255,23 @@ const dotravel = target =>
     })
     .to(target.brain, {
       greyopacity: 1.0,
-      duration: 3,
+      duration: 1.5,
     })
     .to(target.camera.position, {
       x: -18.7,
       y: 2.8,
       z: -5.6,
-      duration: 5,
+      duration: 2.5,
     })
     .to(target.camera.position, {
       x: -12.1,
       y: 1.2,
       z: -1.5,
-      duration: 5,
+      duration: 2.5,
     })
     .to(target.brain, {
       greyopacity: 0.05,
-      duration: 3,
+      duration: 1.5,
     });
 
 const dostroke = target =>
@@ -288,12 +288,166 @@ const dostroke = target =>
       },
     })
     .set(target.caption, { innerHTML: '' })
+    .to(target.camera.position, {
+      x: -13.4,
+      y: 4.8,
+      z: -7.3,
+      duration: 5,
+    })
+    .to(
+      target.controls.target,
+      {
+        x: -3,
+        y: -0.17,
+        z: -0.03,
+        duration: 5,
+      },
+      '<'
+    )
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.8,
+        g: 0.4,
+        b: 0.4,
+        duration: 5,
+      },
+      '<'
+    )
     .to(target.brainDamage, {
-      mainscale: 0.5,
-      duration: 15,
+      mainscale: 0.1,
+      duration: 2,
     })
     .set(target.caption, {
       innerHTML: 'local brain tissue is starved for Oxygen',
+    });
+
+const dostroke2 = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      onComplete: function () {
+        this.nextbtn.style.display = 'block';
+      },
+    })
+    .set(target.caption, { innerHTML: '' })
+    .to(target.brainDamage, {
+      mainscale: 0.2,
+      duration: 2,
+    })
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.8,
+        g: 0.4,
+        b: 0.6,
+        duration: 5,
+      },
+      '<'
+    )
+    .set(target.caption, {
+      innerHTML: 'more tissue is starved for Oxygen',
+    });
+
+const dostroke3 = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      onComplete: function () {
+        this.nextbtn.style.display = 'block';
+      },
+    })
+    .set(target.caption, { innerHTML: '' })
+    .to(target.brainDamage, {
+      mainscale: 0.3,
+      duration: 2,
+    })
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.8,
+        g: 0.3,
+        b: 0.7,
+        duration: 5,
+      },
+      '<'
+    )
+    .set(target.caption, {
+      innerHTML: 'still more tissue is starved for Oxygen',
+    });
+
+const dostroke4 = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      onComplete: function () {
+        this.nextbtn.style.display = 'block';
+      },
+    })
+    .set(target.caption, { innerHTML: '' })
+    .to(target.brainDamage, {
+      mainscale: 0.4,
+      duration: 2,
+    })
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.7,
+        g: 0.2,
+        b: 0.7,
+        duration: 5,
+      },
+      '<'
+    )
+    .set(target.caption, {
+      innerHTML: 'even more tissue is starved for Oxygen',
+    });
+
+const dostroke5 = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      onComplete: function () {
+        this.nextbtn.style.display = 'block';
+      },
+    })
+    .set(target.caption, { innerHTML: '' })
+    .to(target.brainDamage, {
+      mainscale: 0.5,
+      duration: 2,
+    })
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.6,
+        g: 0,
+        b: 0.6,
+        duration: 5,
+      },
+      '<'
+    )
+    .set(target.caption, {
+      innerHTML: 'local brain tissue is critical',
     });
 
 const dodamage = target =>
@@ -325,6 +479,16 @@ const dodamage = target =>
       },
       '<'
     )
+    .to(
+      target.brainDamage.damageColor,
+      {
+        r: 0.2,
+        g: 0.0,
+        b: 0.2,
+        duration: 5,
+      },
+      '<'
+    )
     .set(target.caption, {
       innerHTML: 'Without treatment, damage becomes permanent',
     })
@@ -343,4 +507,4 @@ const dodamage = target =>
       '<'
     );
 
-export { cameraPanToplaque, dobreakoff, dotravel, dostroke, dodamage };
+export { cameraPanToplaque, dobreakoff, dotravel, dostroke, dostroke2, dostroke3, dostroke4, dostroke5, dodamage };

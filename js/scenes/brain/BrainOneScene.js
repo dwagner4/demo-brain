@@ -14,6 +14,10 @@ import {
   dobreakoff,
   dotravel,
   dostroke,
+  dostroke2,
+  dostroke3,
+  dostroke4,
+  dostroke5,
   dodamage,
 } from './brainGsap.js';
 
@@ -85,6 +89,18 @@ export default class BrainOneScene extends SceneThree {
       }
       if (state.value === 'stroke') {
         dostroke(this).play();
+      }
+      if (state.value === 'stroke2') {
+        dostroke2(this).play();
+      }
+      if (state.value === 'stroke3') {
+        dostroke3(this).play();
+      }
+      if (state.value === 'stroke4') {
+        dostroke4(this).play();
+      }
+      if (state.value === 'stroke5') {
+        dostroke5(this).play();
       }
       if (state.value === 'damage') {
         dodamage(this).play();
