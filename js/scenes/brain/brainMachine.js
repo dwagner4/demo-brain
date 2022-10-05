@@ -102,7 +102,7 @@ const brainMachine = createMachine(
   {
     actions: {
       selecthome: assign({
-        homebtn: 'block',
+        homebtn: 'none',
         // resetbtn: 'none',
         nextbtn: 'block',
         drugbtn: 'none',
@@ -134,10 +134,10 @@ const brainMachine = createMachine(
         // resetbtn: 'none',
         // nextbtn: 'block',
         drugbtn: 'block',
-        rewindbtn: 'block',
+        rewindbtn: 'none',
       }),
       selectend: assign({
-        homebtn: 'block',
+        homebtn: 'none',
         // resetbtn: 'none',
         // nextbtn: 'none',
         drugbtn: 'none',

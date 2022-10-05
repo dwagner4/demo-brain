@@ -48,7 +48,7 @@ export default class BrainDamage extends Actor {
 
     // this.mainlobe.material = new THREE.MeshLambertMaterial({ color: 0xaa0000 });
     const yoColor = new THREE.Color(this.damageColor.r, this.damageColor.g, this.damageColor.b)
-    console.log(yoColor)
+    // console.log(yoColor)
     this.mainlobe.material.color.set(yoColor)
 
     // this.mainlobe.material.color.r = this.damageColor.r
@@ -56,7 +56,7 @@ export default class BrainDamage extends Actor {
     // this.mainlobe.material.color.b = this.damageColor.b
     // this.sublobeB.
     // this.sublobeC.
-    console.log(this.mainlobe.material.color)
+    // console.log(this.mainlobe.material.color)
   }
 
   dispose() {

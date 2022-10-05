@@ -6,7 +6,7 @@ export default class BrainClot extends Actor {
   constructor() {
     super();
     this.model = {};
-    this.params = { clotglow: 0 };
+    this.params = { clotglow: 0, clotscale: 1 };
   }
 
   async init() {
@@ -32,6 +32,7 @@ export default class BrainClot extends Actor {
   update(time) {
     super.update(time);
     this.model.material.emissiveIntensity = this.params.clotglow;
+    this.model.scale.set(this.params.clotscale, this.params.clotscale, this.params.clotscale)
   }
 
   dispose() {

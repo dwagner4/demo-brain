@@ -19,6 +19,8 @@ import {
   dostroke4,
   dostroke5,
   dodamage,
+  dodrug,
+  dorecovery
 } from './brainGsap.js';
 
 export default class BrainOneScene extends SceneThree {
@@ -117,6 +119,12 @@ export default class BrainOneScene extends SceneThree {
       }
       if (state.value === 'damage') {
         dodamage(this).play();
+      }
+      if (state.value === 'drug') {
+        dodrug(this).play();
+      }
+      if (state.value === 'recovery') {
+        dorecovery(this).play();
       }
     });
 

@@ -304,20 +304,20 @@ const dostroke = target =>
       },
       '<'
     )
+    .to(target.brainDamage, {
+      mainscale: 0.1,
+      duration: 2,
+    })
     .to(
       target.brainDamage.damageColor,
       {
         r: 0.8,
         g: 0.4,
         b: 0.4,
-        duration: 5,
+        duration: 2,
       },
       '<'
     )
-    .to(target.brainDamage, {
-      mainscale: 0.1,
-      duration: 2,
-    })
     .set(target.caption, {
       innerHTML: 'local brain tissue is starved for Oxygen',
     });
@@ -346,7 +346,7 @@ const dostroke2 = target =>
         r: 0.8,
         g: 0.4,
         b: 0.6,
-        duration: 5,
+        duration: 2,
       },
       '<'
     )
@@ -378,7 +378,7 @@ const dostroke3 = target =>
         r: 0.8,
         g: 0.3,
         b: 0.7,
-        duration: 5,
+        duration: 2,
       },
       '<'
     )
@@ -410,7 +410,7 @@ const dostroke4 = target =>
         r: 0.7,
         g: 0.2,
         b: 0.7,
-        duration: 5,
+        duration: 2,
       },
       '<'
     )
@@ -442,7 +442,7 @@ const dostroke5 = target =>
         r: 0.6,
         g: 0,
         b: 0.6,
-        duration: 5,
+        duration: 2,
       },
       '<'
     )
@@ -475,7 +475,7 @@ const dodamage = target =>
         r: 0.5,
         g: 0.2,
         b: 0.1,
-        duration: 5,
+        duration: 15,
       },
       '<'
     )
@@ -507,4 +507,84 @@ const dodamage = target =>
       '<'
     );
 
-export { cameraPanToplaque, dobreakoff, dotravel, dostroke, dostroke2, dostroke3, dostroke4, dostroke5, dodamage };
+const dodrug = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      onComplete: function () {
+        this.nextbtn.style.display = 'block';
+      },
+    })
+    .to(target.brainClot.params, {
+      clotscale: 0.001,
+      duration: 5,
+    })
+    .set(target.caption, {
+      innerHTML: 'The clot dissolves',
+    });
+
+const dorecovery = target =>
+  gsap
+    .timeline({
+      callbackScope: target,
+      // eslint-disable-next-line func-names, object-shorthand
+      onStart: function () {
+        this.nextbtn.style.display = 'none';
+      },
+      // eslint-disable-next-line func-names, object-shorthand
+      // onComplete: function () {
+      //   this.nextbtn.style.display = 'block';
+      // },
+    })
+    .set(target.caption, { innerHTML: '' })
+    .to(target.brainDamage, {
+      subscale: 0.001,
+      mainscale: 0.001,
+      duration: 15,
+    })
+    .to(
+      target.scene.background,
+      {
+        r: 0.9,
+        g: 0.9,
+        b: 0.9,
+        duration: 15,
+      },
+      '<'
+    )
+    .set(target.caption, {
+      innerHTML: 'Timely Treatment => Recovery',
+    })
+    .to(target.camera.position, {
+      x: -40,
+      y: 1.2,
+      z: -1.5,
+      duration: 5,
+    })
+    .to(
+      target.brain,
+      {
+        greyopacity: 0.5,
+        duration: 5,
+      },
+      '<'
+    );
+
+export { 
+  cameraPanToplaque, 
+  dobreakoff, 
+  dotravel, 
+  dostroke, 
+  dostroke2, 
+  dostroke3, 
+  dostroke4, 
+  dostroke5, 
+  dodamage, 
+  dodrug,
+  dorecovery,
+ };
