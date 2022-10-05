@@ -28,10 +28,10 @@ export default class BrainOneScene extends SceneThree {
     this.controls = new OrbitControls(this.camera, this.canvas);
     this.controls.enableDamping = true;
 
-    // const resetbtn = document.querySelector('#resetbtn');
-    // resetbtn.onclick = () => {
-    //   brainService.send({ type: 'HOME' });
-    // };
+    const resetbtn = document.querySelector('#homebtn');
+    resetbtn.onclick = () => {
+      brainService.send({ type: 'HOME' });
+    };
     this.nextbtn = document.querySelector('#nextbtn');
     this.nextbtn.onclick = () => {
       brainService.send({ type: 'NEXT' });
@@ -41,37 +41,50 @@ export default class BrainOneScene extends SceneThree {
       brainService.send({ type: 'DRUG' });
     };
     this.caption = document.querySelector('#caption');
-    // const rewindbtn = document.querySelector('#rewindbtn');
-    // rewindbtn.onclick = () => {
-    //   brainService.send({ type: 'REWIND' });
-    // };
+    const rewindbtn = document.querySelector('#rewindbtn');
+    rewindbtn.onclick = () => {
+      brainService.send({ type: 'REWIND' });
+    };
 
     console.log('A');
-    this.camera.position.set(0, 3, 30);
+    // this.camera.position.set(0, 3, 30);
 
-    this.cameraDistance = 30;
-    this.cameraHeight = 3;
-    this.cameraRotate = true;
-    this.stoprotating = false;
-    this.pause = true;
-    this.cameraLookAt = { x: 0, y: 0, z: 0 };
-    this.brainprops = { opacity: 1.0 };
+    // this.cameraDistance = 30;
+    // this.cameraHeight = 3;
+    // this.cameraRotate = true;
+    // this.stoprotating = false;
+    // this.pause = true;
+    // this.cameraLookAt = { x: 0, y: 0, z: 0 };
+    // this.brainprops = { opacity: 1.0 };
 
-    this.camera.lookAt(
-      this.cameraLookAt.x,
-      this.cameraLookAt.y,
-      this.cameraLookAt.z
-    );
+    // this.camera.lookAt(
+    //   this.cameraLookAt.x,
+    //   this.cameraLookAt.y,
+    //   this.cameraLookAt.z
+    // );
 
     brainService.subscribe(state => {
-      // resetbtn.style.display = state.context.resetbtn;
+      resetbtn.style.display = state.context.homebtn;
       // nextbtn.style.display = state.context.nextbtn;
-      // drugbtn.style.display = state.context.drugbtn;
-      // rewindbtn.style.display = state.context.rewindbtn;
+      this.drugbtn.style.display = state.context.drugbtn;
+      rewindbtn.style.display = state.context.rewindbtn;
       if (state.value === 'home') {
+        this.scene.background = new THREE.Color(0x303030);
+        this.camera.position.set(0, 3, 30);
+        this.cameraDistance = 30;
+        this.cameraHeight = 3;
         this.cameraRotate = true;
         this.stoprotating = false;
-        this.cameraDistance = 30;
+        this.pause = true;
+        this.cameraLookAt = { x: 0, y: 0, z: 0 };
+        this.brainprops = { opacity: 1.0 };
+
+        this.camera.lookAt(
+          this.cameraLookAt.x,
+          this.cameraLookAt.y,
+          this.cameraLookAt.z
+        );
+
       }
       if (state.value === 'stoprotating') {
         this.nextbtn.style.display = 'none';
@@ -107,7 +120,7 @@ export default class BrainOneScene extends SceneThree {
       }
     });
 
-    this.scene.background = new THREE.Color(0x303030);
+    // this.scene.background = new THREE.Color(0x303030);
 
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
     this.directionalLight.position.set(3, 3, 0);

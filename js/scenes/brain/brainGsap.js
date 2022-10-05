@@ -459,9 +459,9 @@ const dodamage = target =>
         this.nextbtn.style.display = 'none';
       },
       // eslint-disable-next-line func-names, object-shorthand
-      onComplete: function () {
-        this.nextbtn.style.display = 'block';
-      },
+      // onComplete: function () {
+      //   this.nextbtn.style.display = 'block';
+      // },
     })
     .set(target.caption, { innerHTML: '' })
     .to(target.brainDamage, {

@@ -69,7 +69,7 @@ const brainMachine = createMachine(
         },
       },
       stroke5: {
-        entry: ['selectstroke'],
+        entry: ['selectstrokeend'],
         on: {
           REWIND: { target: 'travel' },
           NEXT: { target: 'damage' },
@@ -102,39 +102,46 @@ const brainMachine = createMachine(
   {
     actions: {
       selecthome: assign({
-        homebtn: 'none',
+        homebtn: 'block',
         // resetbtn: 'none',
-        // nextbtn: 'block',
-        // drugbtn: 'none',
-        // rewindbtn: 'none',
+        nextbtn: 'block',
+        drugbtn: 'none',
+        rewindbtn: 'none',
       }),
       selectrotate: assign({
         homebtn: 'none',
         // resetbtn: 'none',
         // nextbtn: 'none',
-        // drugbtn: 'none',
-        // rewindbtn: 'none',
+        drugbtn: 'none',
+        rewindbtn: 'none',
       }),
       selectbefore: assign({
         homebtn: 'none',
         // resetbtn: 'none',
         // nextbtn: 'block',
-        // drugbtn: 'none',
-        // rewindbtn: 'none',
+        drugbtn: 'none',
+        rewindbtn: 'none',
       }),
       selectstroke: assign({
         homebtn: 'none',
         // resetbtn: 'none',
         // nextbtn: 'block',
-        // drugbtn: 'none',
-        // rewindbtn: 'none',
+        drugbtn: 'none',
+        rewindbtn: 'none',
+      }),
+      selectstrokeend: assign({
+        homebtn: 'none',
+        // resetbtn: 'none',
+        // nextbtn: 'block',
+        drugbtn: 'block',
+        rewindbtn: 'block',
       }),
       selectend: assign({
         homebtn: 'block',
         // resetbtn: 'none',
         // nextbtn: 'none',
-        // drugbtn: 'none',
-        // rewindbtn: 'none',
+        drugbtn: 'none',
+        rewindbtn: 'none',
       }),
     },
   }
