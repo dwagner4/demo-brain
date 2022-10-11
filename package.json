@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "gsap": "^3.11.2",
-    "three": "^0.145.0",
-    "xstate": "^4.33.6"
+    "three": "^0.145.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",

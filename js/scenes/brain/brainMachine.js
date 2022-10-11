@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef, no-unused-vars
 const { createMachine, interpret, assign } = XState;
+// import { createMachine, interpret, assign } from 'xstate'
 
 const brainMachine = createMachine(
   {
@@ -152,3 +153,4 @@ brainService.onTransition(state => console.log(state.value));
 brainService.start();
 
 export { brainMachine, brainService };
+// export { brainMachine };
